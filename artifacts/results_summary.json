@@ -1,0 +1,67 @@
+{
+    "primary_metric": "f1_late",
+    "secondary_metric": "recall_late",
+    "data_splits": {
+        "train": 67533,
+        "validation": 14471,
+        "test": 14472
+    },
+    "baseline": {
+        "validation_accuracy": 0.9298597194388778,
+        "late_precision": 0.0,
+        "late_recall": 0.0,
+        "late_f1": 0.0
+    },
+    "tuning": [
+        {
+            "scale_pos_weight": 5,
+            "precision_late": 0.0,
+            "recall_late": 0.0,
+            "f1_late": 0.0
+        },
+        {
+            "scale_pos_weight": 8,
+            "precision_late": 0.07692307692307693,
+            "recall_late": 0.0049261083743842365,
+            "f1_late": 0.009259259259259259
+        },
+        {
+            "scale_pos_weight": 10,
+            "precision_late": 0.07627118644067797,
+            "recall_late": 0.026600985221674877,
+            "f1_late": 0.039444850255661065
+        },
+        {
+            "scale_pos_weight": 13.826,
+            "precision_late": 0.07117353011187813,
+            "recall_late": 0.29458128078817736,
+            "f1_late": 0.11464723926380369
+        },
+        {
+            "scale_pos_weight": 16,
+            "precision_late": 0.06803676282869543,
+            "recall_late": 0.5251231527093596,
+            "f1_late": 0.12046558933212792
+        },
+        {
+            "scale_pos_weight": 20,
+            "precision_late": 0.06906823047565856,
+            "recall_late": 0.7310344827586207,
+            "f1_late": 0.12621194080625958
+        }
+    ],
+    "selected_configuration": {
+        "model": "XGBClassifier",
+        "n_estimators": 300,
+        "learning_rate": 0.05,
+        "max_depth": 5,
+        "colsample_bytree": 0.8,
+        "scale_pos_weight": 20.0
+    },
+    "final_test": {
+        "precision_late": 0.06641123882503193,
+        "recall_late": 0.6466321243523316,
+        "f1_late": 0.12045169385194479,
+        "accuracy": 0.3703012714206744
+    }
+}
