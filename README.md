@@ -66,6 +66,7 @@ The data is processed and transformed throughout the project to prepare it for a
 - Jupyter Notebook
 ## Project Structure
 
+```text
 olist-mlops-project/
 │
 ├── app/
@@ -102,6 +103,8 @@ olist-mlops-project/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
+
 
 
 ## Project Workflow
