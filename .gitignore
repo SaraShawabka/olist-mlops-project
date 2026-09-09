@@ -15,3 +15,12 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local WSL environment
+.venv-wsl/
+
+# Application logs
+logs/
+
+# Great Expectations local files
+great_expectations/uncommitted/

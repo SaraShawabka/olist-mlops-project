@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "428c786f-fa1c-4e9e-9cce-d6c3058a694c",
+      "name": "olist_prediction_data"
+    },
+    "batch_definition": {
+      "id": "b43f874e-be9c-47ca-97b4-597aee67c851",
+      "name": "whole_dataframe"
+    },
+    "datasource": {
+      "id": "a56d0f36-ab72-4406-b092-e03fc8f29d55",
+      "name": "olist_pandas_source"
+    }
+  },
+  "id": "460ceead-d690-4a8e-8f35-5ea9b71ee91f",
+  "name": "olist_prediction_validation",
+  "suite": {
+    "id": "fce6d7d9-3332-4c26-87bc-dc96f2240d66",
+    "name": "olist_prediction_input"
+  }
+}

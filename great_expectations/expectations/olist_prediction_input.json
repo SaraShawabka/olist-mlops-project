@@ -1,0 +1,231 @@
+{
+  "expectations": [
+    {
+      "id": "766fd97f-2af5-485a-aa09-8d0ecf6d1e72",
+      "kwargs": {
+        "column": "number_of_items"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "1699509a-7c70-4dc4-85d3-8bf0b2498f1d",
+      "kwargs": {
+        "column": "total_price"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "78527cc3-2df4-4e3e-8abc-2db30d28f8c4",
+      "kwargs": {
+        "column": "total_freight"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "ed4906d1-4d8e-4b42-b5a2-9a4346bf7359",
+      "kwargs": {
+        "column": "number_of_payments"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "7d91f633-1f6c-4d5b-8131-c1eb62ac422d",
+      "kwargs": {
+        "column": "total_payment_value"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "108fee6b-82dc-4839-8cff-88a5dcec4a69",
+      "kwargs": {
+        "column": "purchase_hour"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "af1bd690-013c-45b2-8fba-2bc72f95f391",
+      "kwargs": {
+        "column": "purchase_weekday"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "441f31bb-002c-4bd3-8295-283d13843afe",
+      "kwargs": {
+        "column": "purchase_month"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "03bf81eb-4b33-4946-aeb7-0a28d2b1589c",
+      "kwargs": {
+        "column": "estimated_delivery_days"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "4e031dac-9107-47ef-90e5-d79ca3f31469",
+      "kwargs": {
+        "column": "customer_state"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "69a8bf7a-81f6-4b24-82b1-51c0aa60d213",
+      "kwargs": {
+        "column": "distance_km"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "ff53ff2f-5e70-4dc3-9a18-e786a7016f72",
+      "kwargs": {
+        "column": "purchase_hour",
+        "max_value": 23.0,
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "4a9c7ef7-fda6-44dd-85f1-044efa8cd90e",
+      "kwargs": {
+        "column": "purchase_weekday",
+        "value_set": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "d16b3980-f111-4c0f-813b-63b3399e612c",
+      "kwargs": {
+        "column": "purchase_month",
+        "value_set": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "6b3e3fc6-743a-4515-9960-5cb3ae84b895",
+      "kwargs": {
+        "column": "number_of_items",
+        "min_value": 1.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "30765c47-4262-4f0e-b6c4-882842a5672a",
+      "kwargs": {
+        "column": "number_of_payments",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "d9abf90e-9648-48e7-aea0-5e9cd80f8374",
+      "kwargs": {
+        "column": "total_price",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "d80d0d29-dd26-4bff-ab2d-aa48adaf22d4",
+      "kwargs": {
+        "column": "total_freight",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "71b09079-de95-4410-82af-c1a80a582e0c",
+      "kwargs": {
+        "column": "total_payment_value",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "00e000ef-4f46-49c5-8860-b556786ba752",
+      "kwargs": {
+        "column": "estimated_delivery_days",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "77f8583f-0924-485e-9d90-7e1bd0e98489",
+      "kwargs": {
+        "column": "distance_km",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "fce6d7d9-3332-4c26-87bc-dc96f2240d66",
+  "meta": {
+    "great_expectations_version": "1.22.0"
+  },
+  "name": "olist_prediction_input",
+  "notes": null
+}
