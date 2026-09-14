@@ -1,0 +1,13 @@
+.venv/
+.venv-wsl/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.git/
+.gitignore
+logs/
+data/
+notebooks/
+artifacts/*.csv
+artifacts/N4_eda/
+models/
