@@ -8,3 +8,5 @@ joblib==1.5.3
 pyyaml==6.0.3
 pydantic==2.13.5
 great_expectations==1.22.0
+pytest==8.4.2
+httpx==0.28.1
