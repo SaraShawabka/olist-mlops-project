@@ -1,0 +1,33 @@
+# GitHub Actions workflow for automated testing
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Download the project files from GitHub
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Set up Python 3.12 for the test environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Install all project dependencies
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Run the automated tests
+      - name: Run tests
+        run: pytest -v
