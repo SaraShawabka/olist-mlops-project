@@ -1,5 +1,5 @@
 # Define the project paths and model settings in one central configuration file
-artifacts_dir: "Artifacts"
+artifacts_dir: "artifacts"
 models_dir: "Artifacts/models"
 logs_dir: "logs"
 
