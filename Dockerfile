@@ -10,8 +10,8 @@ COPY app/ app/
 COPY src/ src/
 COPY config/ config/
 COPY great_expectations/ great_expectations/
-COPY artifacts/feature_list.json Artifacts/feature_list.json
-COPY artifacts/models/ Artifacts/models/
+COPY artifacts/feature_list.json artifacts/feature_list.json
+COPY artifacts/models/ artifacts/models/
 
 EXPOSE 8000
 
