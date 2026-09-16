@@ -19,6 +19,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Build the Docker image
+            # Build the Docker image
       - name: Build Docker image
         run: docker build -t olist-api:1.0 .
+
+      # Log in to GitHub Container Registry
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
