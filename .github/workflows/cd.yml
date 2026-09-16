@@ -29,5 +29,6 @@ jobs:
       # Push the Docker image to GitHub Container Registry
       - name: Push Docker image
         run: |
-          docker tag olist-api:1.0 ghcr.io/${{ github.repository_owner }}/olist-mlops-project:latest
-          docker push ghcr.io/${{ github.repository_owner }}/olist-mlops-project:latest
+          # Tag the image using a lowercase GHCR repository name
+          docker tag olist-api:1.0 ghcr.io/sarashawabka/olist-mlops-project:latest
+          docker push ghcr.io/sarashawabka/olist-mlops-project:latest
