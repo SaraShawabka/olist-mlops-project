@@ -9,6 +9,10 @@ on:
 jobs:
   docker-build:
     runs-on: ubuntu-latest
+        # Allow GitHub Actions to publish Docker images to GHCR
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       # Download the project files from GitHub
