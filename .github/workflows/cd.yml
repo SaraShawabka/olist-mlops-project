@@ -26,3 +26,8 @@ jobs:
       # Log in to GitHub Container Registry
       - name: Log in to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+      # Push the Docker image to GitHub Container Registry
+      - name: Push Docker image
+        run: |
+          docker tag olist-api:1.0 ghcr.io/${{ github.repository_owner }}/olist-mlops-project:latest
+          docker push ghcr.io/${{ github.repository_owner }}/olist-mlops-project:latest
