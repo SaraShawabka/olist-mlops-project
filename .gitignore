@@ -24,3 +24,7 @@ logs/
 
 # Great Expectations local files
 great_expectations/uncommitted/
+
+# Ignore local MLflow tracking data
+mlflow.db
+mlruns/
