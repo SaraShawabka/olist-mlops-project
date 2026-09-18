@@ -1,6 +1,22 @@
 # Test the FastAPI health-check endpoint
 from fastapi.testclient import TestClient
 from app.main import app
+import numpy as np
+import pytest
+from src import predictor
+
+
+class MockModel:
+    def predict(self, X):
+        return np.array([1] * len(X))
+
+    def predict_proba(self, X):
+        return np.array([[0.4, 0.6]] * len(X))
+
+
+@pytest.fixture(autouse=True)
+def mock_mlflow_model(monkeypatch):
+    monkeypatch.setattr(predictor, "load_model", lambda: MockModel())
 
 client = TestClient(app)
 
