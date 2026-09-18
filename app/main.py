@@ -106,7 +106,8 @@ def make_prediction(order: OrderInput):
 
         return {
             "prediction": int(prediction[0]),
-            "late_probability": float(probability[0])
+            "late_probability": float(probability[0]),
+            "model_version" : MODEL_VERSION
         }
     except HTTPException :
         raise
@@ -185,7 +186,8 @@ def perdict_batch(batch: BatchOrderInput):
                     predictions,
                     probabilities
                 )
-            ]
+            ],
+            "model_version": MODEL_VERSION
         }
 
     except HTTPException:

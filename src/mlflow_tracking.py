@@ -2,6 +2,7 @@ import joblib
 import mlflow
 import mlflow.xgboost
 
+mlflow.set_tracking_uri("http://localhost:5000")
 
 MODEL_PATH = "artifacts/models/xgboost_final_model.joblib"
 

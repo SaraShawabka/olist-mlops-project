@@ -1,8 +1,13 @@
-# Define the project paths and model settings in one central configuration file
+# Define the project paths and MLflow model settings
 artifacts_dir: "artifacts"
-models_dir: "Artifacts/models"
+models_dir: "artifacts/models"
 logs_dir: "logs"
+
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  model_name: "olist-late-delivery-xgb"
+  model_alias: "champion"
 
 model:
   name: "XGBoost"
-  version: "1.0"
+  version: "1"
