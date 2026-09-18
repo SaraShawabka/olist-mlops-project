@@ -1,19 +1,18 @@
 from pathlib import Path
-import yaml
-import great_expectations as gx
-import pandas as pd
+
+from great_expectations.exceptions import DataContextError
+
 import great_expectations as gx
 from great_expectations.expectations import (
     ExpectColumnToExist,
     ExpectColumnValuesToBeBetween,
     ExpectColumnValuesToBeInSet,
 )
+
 # Load the project root and create a persistent Great Expectations context
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-context = gx.get_context(
-    context_root_dir=PROJECT_ROOT / "great_expectations"
-)
+context = gx.get_context(context_root_dir=PROJECT_ROOT / "great_expectations")
 
 # Define the feature columns that must be present in every prediction request
 required_features = [
@@ -39,9 +38,7 @@ suite.expectations.clear()
 
 # Check that all required feature columns exist
 for column in required_features:
-    suite.add_expectation(
-        ExpectColumnToExist(column=column)
-    )
+    suite.add_expectation(ExpectColumnToExist(column=column))
 
 
 # Validate that purchase_hour is between 0 and 23
@@ -161,27 +158,21 @@ batch_definition_name = "whole_dataframe"
 # Get the existing Data Source or create it if it does not exist
 try:
     data_source = context.data_sources.get(data_source_name)
-except Exception:
-    data_source = context.data_sources.add_pandas(
-        name=data_source_name
-    )
+except KeyError:
+    data_source = context.data_sources.add_pandas(name=data_source_name)
 
 
 # Get the existing Data Asset or create it if it does not exist
 try:
     data_asset = data_source.get_asset(data_asset_name)
-except Exception:
-    data_asset = data_source.add_dataframe_asset(
-        name=data_asset_name
-    )
+except LookupError:
+    data_asset = data_source.add_dataframe_asset(name=data_asset_name)
 
 
 # Get the existing Batch Definition or create it if it does not exist
 try:
-    batch_definition = data_asset.get_batch_definition(
-        batch_definition_name
-    )
-except Exception:
+    batch_definition = data_asset.get_batch_definition(batch_definition_name)
+except KeyError:
     batch_definition = data_asset.add_batch_definition_whole_dataframe(
         batch_definition_name
     )
@@ -192,7 +183,7 @@ try:
     validation_definition = context.validation_definitions.get(
         "olist_prediction_validation"
     )
-except Exception:
+except DataContextError:
     validation_definition = context.validation_definitions.add(
         gx.ValidationDefinition(
             data=batch_definition,
@@ -204,8 +195,6 @@ except Exception:
 
 # Validate a pandas DataFrame using the Great Expectations Validation Definition
 def validate_input_data(df):
-    validation_result = validation_definition.run(
-        batch_parameters={"dataframe": df}
-    )
+    validation_result = validation_definition.run(batch_parameters={"dataframe": df})
 
     return validation_result
