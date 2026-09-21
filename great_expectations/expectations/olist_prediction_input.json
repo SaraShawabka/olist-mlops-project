@@ -1,7 +1,7 @@
 {
   "expectations": [
     {
-      "id": "69d33c47-3987-412a-9dbb-ce7aa7988b2d",
+      "id": "cd71533c-e7e8-4e3f-9780-44a50b368c6a",
       "kwargs": {
         "column": "number_of_items"
       },
@@ -10,7 +10,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "d52fea33-68ed-4d29-94a4-c3fb2333783e",
+      "id": "1c24afcc-8429-4b5d-9471-384bab9d57d2",
       "kwargs": {
         "column": "total_price"
       },
@@ -19,7 +19,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "f96f2037-d7f1-4331-ad16-4ed76d3bc307",
+      "id": "209a3481-0cb1-4102-a712-c48a9c31e5e4",
       "kwargs": {
         "column": "total_freight"
       },
@@ -28,7 +28,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "c66c71e6-2b35-4360-b3d3-d4466a55efcb",
+      "id": "f27a4c19-068b-48c4-8912-50dbe74f7b45",
       "kwargs": {
         "column": "number_of_payments"
       },
@@ -37,7 +37,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "dc279569-7b0e-43a3-bd71-53cddaf600e6",
+      "id": "ce60773c-4e21-4975-9b34-1fd4c5b972ca",
       "kwargs": {
         "column": "total_payment_value"
       },
@@ -46,7 +46,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "c41954be-a8ee-4f77-9c2d-bd9c765ccd3f",
+      "id": "7c479d82-0dcc-41d5-a4b9-9927d46a5c5d",
       "kwargs": {
         "column": "purchase_hour"
       },
@@ -55,7 +55,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "c863ffd0-fd74-4549-94eb-21f40111a70a",
+      "id": "c2cd89b5-ef45-4e26-8e44-4057eeafa8e4",
       "kwargs": {
         "column": "purchase_weekday"
       },
@@ -64,7 +64,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "3ba3dafa-ee33-4c4f-81d5-57e1dd969b72",
+      "id": "693d3cbc-8c13-44eb-8a14-74c5e7232ad0",
       "kwargs": {
         "column": "purchase_month"
       },
@@ -73,7 +73,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "91abd699-f0f9-4cd3-8139-641f6a47f980",
+      "id": "ed9225b7-be0c-474d-8c06-730f3f5e272e",
       "kwargs": {
         "column": "estimated_delivery_days"
       },
@@ -82,7 +82,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "6b1ac49e-ff4a-487f-84a6-9cc21f431173",
+      "id": "45e54a78-d742-483d-be97-e6ef0563dd41",
       "kwargs": {
         "column": "customer_state"
       },
@@ -91,7 +91,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "76967f37-7c13-45b2-81f8-a49e3d04e7e1",
+      "id": "f0ac2cb3-c211-43d1-a2bf-4c2ddd110192",
       "kwargs": {
         "column": "distance_km"
       },
@@ -100,7 +100,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "d96306e7-a144-4956-866f-4ec9235c0211",
+      "id": "efaaa753-3ab3-4d18-bb48-91bb5a85e320",
       "kwargs": {
         "column": "purchase_hour",
         "max_value": 23.0,
@@ -111,7 +111,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "918aaaf6-f146-43ee-9cb9-55550676632a",
+      "id": "e52c5382-9bf2-4613-bcb4-3c60defeb3c2",
       "kwargs": {
         "column": "purchase_weekday",
         "value_set": [
@@ -129,7 +129,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "ab40d5a5-06fa-423b-8ef7-eafd8b0ea605",
+      "id": "42720303-6d8a-4218-b512-bd0cae7e0e65",
       "kwargs": {
         "column": "purchase_month",
         "value_set": [
@@ -152,7 +152,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "f7afc895-6f80-4d62-b9fd-7fd8b601bfb4",
+      "id": "a8df3f2b-caa1-4dab-9e49-abf9b9d71646",
       "kwargs": {
         "column": "number_of_items",
         "min_value": 1.0
@@ -162,7 +162,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "2c340d0a-32aa-4bc0-811b-5b15e6cc944b",
+      "id": "dc21cb55-15c8-450b-9235-8902d207c7d4",
       "kwargs": {
         "column": "number_of_payments",
         "min_value": 0.0
@@ -172,7 +172,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "4a7f14be-3eac-4f35-b947-64bc21f36151",
+      "id": "28e3013e-2111-456c-aff4-d21b748cb6b2",
       "kwargs": {
         "column": "total_price",
         "min_value": 0.0
@@ -182,7 +182,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "6d4b5728-03b9-41a8-b8b4-5f907cae708d",
+      "id": "cf0f8bf0-d1d8-4e0a-9b41-1a78fccb5521",
       "kwargs": {
         "column": "total_freight",
         "min_value": 0.0
@@ -192,7 +192,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "80e31d91-ee90-4205-9d67-88ab837fd704",
+      "id": "53d5efb3-ea85-42e2-b2e2-a31e8f8136cc",
       "kwargs": {
         "column": "total_payment_value",
         "min_value": 0.0
@@ -202,7 +202,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "67c673a3-ad2f-44ee-b931-4977cef398b8",
+      "id": "e51b9993-d502-49b4-8289-cacf7ccd23db",
       "kwargs": {
         "column": "estimated_delivery_days",
         "min_value": 0.0
@@ -212,7 +212,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "486ee301-5c07-4574-aa53-7f5fa24c40c7",
+      "id": "314a2473-1498-481e-a367-f01ffe1172a9",
       "kwargs": {
         "column": "distance_km",
         "min_value": 0.0
