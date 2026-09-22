@@ -87,9 +87,12 @@ services:
 
     depends_on:
       - mlflow
+    volumes:
+      - prediction_logs:/app/logs
 
 
 # Persist service data across container restarts
 volumes:
   mlflow_postgres_data:
   minio_data:
+  prediction_logs:

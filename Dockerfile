@@ -11,6 +11,7 @@ COPY src/ src/
 COPY config/ config/
 COPY great_expectations/ great_expectations/
 COPY artifacts/feature_list.json artifacts/feature_list.json
+COPY artifacts/drift_baseline.csv artifacts/drift_baseline.csv
 COPY artifacts/models/ artifacts/models/
 
 EXPOSE 8000

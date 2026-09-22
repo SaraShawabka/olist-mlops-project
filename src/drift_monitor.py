@@ -38,7 +38,7 @@ def calculate_numeric_drift(
             "baseline_mean": float(baseline_mean),
             "current_mean": float(current_mean),
             "drift_ratio": float(drift_ratio),
-            "drift_detected": drift_ratio > threshold,
+            "drift_detected": bool(drift_ratio > threshold),
         }
 
     return results
@@ -52,9 +52,12 @@ def calculate_categorical_drift(
     results = {}
 
     for feature in CATEGORICAL_FEATURES:
-        baseline_distribution = baseline[feature].value_counts(normalize=True)
+        # Normalize categorical values to strings before comparing distributions
+        baseline_distribution = (
+            baseline[feature].astype(str).value_counts(normalize=True)
+        )
 
-        current_distribution = current[feature].value_counts(normalize=True)
+        current_distribution = current[feature].astype(str).value_counts(normalize=True)
 
         categories = set(baseline_distribution.index) | set(current_distribution.index)
 
@@ -80,7 +83,7 @@ def calculate_categorical_drift(
 
         results[feature] = {
             "max_distribution_change": float(max_difference),
-            "drift_detected": max_difference > threshold,
+            "drift_detected": bool(max_difference > threshold),
         }
 
     return results

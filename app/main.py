@@ -1,5 +1,7 @@
+import json
 import logging
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -9,6 +11,7 @@ from fastapi.responses import Response
 from prometheus_client import Counter, Histogram, generate_latest
 from pydantic import BaseModel
 
+from src.drift_monitor import detect_drift
 from src.predictor import predict
 from src.preprocessing import transform_features
 from src.validation import validate_input_data
@@ -77,6 +80,103 @@ class BatchOrderInput(BaseModel):
 # Read the model version from the central configuration file
 MODEL_VERSION = config["model"]["version"]
 app = FastAPI()
+PREDICTION_LOG_PATH = Path(config["prediction_log"])
+PREDICTION_LOG_PATH.parent.mkdir(
+    parents=True,
+    exist_ok=True,
+)
+
+
+def save_prediction_log(
+    order_input: OrderInput,
+    prediction: int,
+    late_probability: float,
+    latency: float,
+) -> None:
+    log_entry = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "input": order_input.model_dump(),
+        "prediction": prediction,
+        "late_probability": late_probability,
+        "latency_seconds": latency,
+        "model_version": MODEL_VERSION,
+    }
+
+    with PREDICTION_LOG_PATH.open(
+        "a",
+        encoding="utf-8",
+    ) as file:
+        file.write(json.dumps(log_entry) + "\n")
+
+
+# Add a monitoring endpoint that compares recent prediction inputs with the training baseline
+@app.get("/monitoring/drift")
+def monitoring_drift():
+    try:
+        baseline_path = Path(config["artifacts_dir"]) / "drift_baseline.csv"
+
+        if not baseline_path.exists():
+            raise HTTPException(
+                status_code=500,
+                detail="Drift baseline not found.",
+            )
+
+        if not PREDICTION_LOG_PATH.exists():
+            return {
+                "drift_detected": False,
+                "sample_count": 0,
+                "message": "No prediction logs available yet.",
+            }
+
+        baseline = pd.read_csv(baseline_path)
+
+        log_entries = []
+
+        with PREDICTION_LOG_PATH.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+            for line in file:
+                if line.strip():
+                    log_entries.append(json.loads(line))
+
+        if not log_entries:
+            return {
+                "drift_detected": False,
+                "sample_count": 0,
+                "message": "No prediction logs available yet.",
+            }
+
+        current = pd.DataFrame([entry["input"] for entry in log_entries])
+
+        drift_result = detect_drift(
+            baseline=baseline,
+            current=current,
+        )
+
+        if drift_result["drift_detected"]:
+            logger.warning(
+                "Data drift detected: %s",
+                drift_result["alerts"],
+            )
+        else:
+            logger.info("No data drift detected")
+
+        return {
+            "sample_count": len(current),
+            **drift_result,
+        }
+
+    except HTTPException:
+        raise
+
+    except Exception:
+        logger.exception("Drift monitoring failed")
+
+        raise HTTPException(
+            status_code=500,
+            detail="Drift monitoring failed.",
+        )
 
 
 # Expose Prometheus metrics through a FastAPI endpoint
@@ -127,6 +227,12 @@ def make_prediction(order: OrderInput):
         )
 
         logger.info(f"Model version: {MODEL_VERSION}")
+        save_prediction_log(
+            order_input=order,
+            prediction=int(prediction[0]),
+            late_probability=float(probability[0]),
+            latency=latency,
+        )
 
         return {
             "prediction": int(prediction[0]),

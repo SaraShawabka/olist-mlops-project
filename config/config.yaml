@@ -2,6 +2,7 @@
 artifacts_dir: "artifacts"
 models_dir: "artifacts/models"
 logs_dir: "logs"
+prediction_log: "logs/predictions.jsonl"
 
 mlflow:
   tracking_uri: "http://localhost:5000"

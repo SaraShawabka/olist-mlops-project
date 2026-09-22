@@ -9,5 +9,6 @@ logs/
 data/
 notebooks/
 artifacts/*.csv
+!artifacts/drift_baseline.csv
 artifacts/N4_eda/
 models/
